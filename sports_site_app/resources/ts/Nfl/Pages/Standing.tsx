@@ -53,18 +53,18 @@ const Standing: React.FC = () => {
 
   const displayLeagueData: FilterData[] | null = standings ? filterData(standings.league['2022'][1] as unknown as Team[]) : null;
 
-  const reducer = (state, action) => {
-    switch (action.type) {
-      case 0:
-        return 'LeagueComponent';
-      case 0:
-        return 'LeagueComponent';
-      case 0:
-        return 'LeagueComponent';
-      default:
-        throw new Error();
-    }
-  }
+  // const reducer = (state, action) => {
+  //   switch (action.type) {
+  //     case 0:
+  //       return 'LeagueComponent';
+  //     case 0:
+  //       return 'LeagueComponent';
+  //     case 0:
+  //       return 'LeagueComponent';
+  //     default:
+  //       throw new Error();
+  //   }
+  // }
 
   const LeagueComponent = () => {
     return (
@@ -77,7 +77,7 @@ const Standing: React.FC = () => {
     )
   }
 
-  const [state, dispatch] = useReducer(reducer, 'component1');
+  // const [state, dispatch] = useReducer(reducer, 'component1');
 
   return (
     <>
