@@ -1,5 +1,7 @@
-.text_align_right {
-  text-align: right !important;
+.standing_subtitle {
+  margin: 30px auto 10px !important;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .basic_table_for_team_data {
@@ -8,7 +10,6 @@
     overflow-x: auto;
     margin: 0 auto;
     position: relative;
-    margin-top: 50px !important;
 
     & table {
       width: 90% !important;
@@ -46,13 +47,6 @@
     }
   }
 }
-
-.nfl_footer {
-  background: #dee2e6;
-  width: 100%;
-  height: 100px;
-}
-
 
 
 

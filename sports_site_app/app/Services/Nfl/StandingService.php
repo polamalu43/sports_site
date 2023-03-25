@@ -10,7 +10,7 @@ class StandingService
 
   public function __construct(IStandingRepository $standing_repository)
   {
-      $this->standing_repository = $standing_repository;
+    $this->standing_repository = $standing_repository;
   }
 
   public function getSelectStandingData()

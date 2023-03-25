@@ -11,6 +11,6 @@ class TeamController extends Controller
 {
     public function show(TeamApiService $team_service)
     {
-        //$team_service->insertApiResponse();
+        // $team_service->insertApiResponse();
     }
 }

@@ -18,7 +18,7 @@ class StandingController extends Controller
   public function index()
   {
     $check = new StandingRepository;
-    // dd($check->getLeagueData());
+    // dd($check->getDivisionData());
     // dd($this->standing_service->getSelectStandingData());
 
     return view('nfl.standing');

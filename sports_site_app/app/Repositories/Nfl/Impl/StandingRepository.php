@@ -47,12 +47,34 @@ class StandingRepository implements IStandingRepository
 
   public function getDivisionData()
   {
-    return $this->select_standing_data->groupBy(['season', 'season_type', 'division'])->toArray();
+    $groupedData = $this->select_standing_data->groupBy(['season', 'season_type', 'conference', 'division']);
+    $sortedData = $groupedData->map(function ($item) {
+      return $item->map(function ($item2) {
+        return $item2->map(function ($item3) {
+          return $item3->map(function ($item4) {
+            return $item4->sortBy([
+              ['division_rank', true]
+            ])->values();
+          });
+        });
+      });
+    });
+    return $sortedData->toArray();
   }
 
   public function getConferenceData()
   {
-    return $this->select_standing_data->groupBy(['season', 'season_type', 'conference'])->toArray();
+    $groupedData = $this->select_standing_data->groupBy(['season', 'season_type', 'conference']);
+    $sortedData = $groupedData->map(function ($item) {
+      return $item->map(function ($item2) {
+        return $item2->map(function ($item3) {
+          return $item3->sortBy([
+            ['conference_rank', true]
+          ])->values();
+        });
+      });
+    });
+    return $sortedData->toArray();
   }
 
   public function getLeagueData()

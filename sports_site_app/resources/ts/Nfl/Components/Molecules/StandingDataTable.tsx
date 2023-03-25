@@ -3,14 +3,16 @@ import { generateUniqueKey } from '../../../utils/Common';
 
 interface Props<T> {
   datas: T[];
+  subtitle: string | null;
 }
 
-const StandingDataTable = <T extends object>({ datas }: Props<T>): JSX.Element => {
+const StandingDataTable = <T extends object>({ datas, subtitle }: Props<T>): JSX.Element => {
   const keys: string[] | number[] = Object.keys(datas[0]);
 
   return (
     <div className='basic_table_for_team_data'>
-      <div>
+      { subtitle ? <div className='standing_subtitle'>{subtitle}</div> : '' }
+      <div  className={ !subtitle ? 'margin_t40px' : ''}>
         <Table striped bordered hover>
           <thead>
             <tr>

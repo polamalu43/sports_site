@@ -1,1 +1,3 @@
-@use 'Nfl/style.scss' as Nfl;
+@use 'Nfl/Common.scss' as Common;
+@use 'Nfl/Pages/Standing.scss' as Standing;
+@use 'Nfl/Components/Organisms.scss' as Organisms;
