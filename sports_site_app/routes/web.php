@@ -22,12 +22,13 @@ use App\Http\Controllers\Nfl\Users\StandingController;
 
 Route::prefix('nfl')->group(function () {
   Route::get('/', [TopController::class, 'index']);
-  Route::get('/teams', [TeamController::class, 'show']);
+  Route::get('/team', [TeamController::class, 'show']);
   Route::get('/standing', [StandingController::class, 'index']);
 });
 
 Route::prefix('/api/nfl')->group(function () {
-  Route::post('/standings', [StandingController::class, 'standings']);
+  Route::get('/team', [TeamController::class, 'insertApiResponse']);
+  Route::post('/standing', [StandingController::class, 'standing']);
 });
 
 ?>

@@ -24,7 +24,7 @@ class StandingController extends Controller
     return view('nfl.standing');
   }
 
-  public function standings()
+  public function standing()
   {
     return $this->standing_service->getSelectStandingData();
   }

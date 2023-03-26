@@ -15,7 +15,7 @@ const Standing: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post('/api/nfl/standings');
+        const response = await axios.post('/api/nfl/standing');
         setStandings(response.data);
       } catch (error) {
         console.error(error);
@@ -87,7 +87,11 @@ const Standing: React.FC = () => {
     return (
       <>
         { displayLeagueData
-            ? <StandingDataTable<FilterData> datas={ displayLeagueData } subtitle={null}/>
+            ? <StandingDataTable<FilterData>
+              datas={ displayLeagueData }
+              conferenceName={ null }
+              divisionName={ null }
+            />
             : ''
         }
       </>
@@ -101,7 +105,11 @@ const Standing: React.FC = () => {
             ? Object.entries(displayConferenceData).map(([key, teams]) => {
               return (
                 <React.Fragment key={generateUniqueKey()}>
-                  <StandingDataTable<FilterData> datas={ teams } subtitle={key}/>
+                  <StandingDataTable<FilterData>
+                    datas={ teams }
+                    conferenceName={ key }
+                    divisionName={ null }
+                  />
                 </React.Fragment>
               )
             })
@@ -116,10 +124,14 @@ const Standing: React.FC = () => {
       <>
         { displayDivisionData
             ? Object.entries(displayDivisionData).map(([conferenceName, divisions]) => {
-              return Object.entries(divisions).map(([divisionName, teams]) => {
+              return Object.entries(divisions).map(([divisionName, teams], divisionIndex) => {
                 return (
                   <React.Fragment key={generateUniqueKey()}>
-                    <StandingDataTable<FilterData> datas={ teams } subtitle={divisionName}/>
+                    <StandingDataTable<FilterData>
+                      datas={ teams }
+                      conferenceName={ divisionIndex === 0 ? conferenceName : null }
+                      divisionName={ divisionName }
+                    />
                   </React.Fragment>
                 )
               })

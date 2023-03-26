@@ -9,8 +9,8 @@ use App\Repositories\Nfl\ITeamApiRepository;
 
 class TeamController extends Controller
 {
-    public function show(TeamApiService $team_service)
+    public function insertApiResponse(TeamApiService $team_service)
     {
-        // $team_service->insertApiResponse();
+        $team_service->insertApiResponse();
     }
 }
